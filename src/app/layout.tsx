@@ -4,23 +4,24 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "FarmFi - Decentralized Agriculture Marketplace",
   description:
-    "FarmFi is a blockchain-powered agricultural marketplace that connects rural farmers directly with local and international buyers, ensuring fair pricing and secure transactions through smart contracts and $SUI-based escrows. The platform eliminates the need for intermediaries, allowing farmers to receive instant payments while providing buyers with transparent and traceable farm produce. By leveraging Web3 technology, decentralized finance (DeFi), and smart contracts, FarmFi enables seamless, trustless transactions that empower farmers and create a more efficient global food supply chain.",
-  icons: [
-    {
-      sizes: "64x64 32x",
-      type: "image/x-icon",
-      url: "https://farm-fi.vercel.app/favicon.ico",
-      rel: "icon",
-    },
-    {
-      url: "https://farm-fi.vercel.app/logo.png",
-      type: "image/png",
-      rel: "apple-touch-icon",
-    },
-  ],
-  applicationName: "Farm-Fi",
-  authors: [{ name: "Olayinka Ayodele", url: "https://olayinka.codes" }, {name: "Emmanuel Adesipe", url: "https://github.com/LukoOG"}],
+    "FarmFi is a blockchain-powered agricultural marketplace that connects rural farmers directly with local and international buyers, ensuring fair pricing and secure transactions through smart contracts and $SUI-based escrows. The platform eliminates intermediaries, enabling instant payments for farmers and providing buyers with transparent, traceable farm produce. Leveraging Web3, DeFi, and smart contracts, FarmFi fosters a trustless, efficient global food supply chain.",
+
+  applicationName: "FarmFi",
   generator: "Next.js",
+  referrer: "origin",
+  publisher: "FarmFi",
+  creator: "Olayinka Ayodele | Emmanuel Adesipe",
+
+  authors: [
+    { name: "Olayinka Ayodele", url: "https://olayinka.codes" },
+    { name: "Emmanuel Adesipe", url: "https://github.com/LukoOG" },
+  ],
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/logo.png",
+  },
+
   keywords: [
     "FarmFi",
     "Blockchain agriculture",
@@ -93,28 +94,23 @@ export const metadata: Metadata = {
     "Web3 impact in agriculture",
     "Digital transformation in farming",
   ],
-  referrer: "origin",
-  creator: "Olayinka Ayodele | Emmanuel Adesipe",
-  publisher: "Vercel",
+
   robots: {
     index: true,
     follow: true,
-    nocache: false,
+    noarchive: false,
     nosnippet: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-snippet": -1,
-      "max-image-preview": "large",
-      notranslate: false,
-    },
+    "max-snippet": -1,
+    "max-image-preview": "large",
+    "max-video-preview": -1,
   },
+
   openGraph: {
     type: "website",
     url: "https://farm-fi.vercel.app",
     title: "FarmFi - Decentralized Agriculture Marketplace",
-    description: "FarmFi is a blockchain-powered agricultural marketplace that connects rural farmers directly with local and international buyers, ensuring fair pricing and secure transactions through smart contracts and $SUI-based escrows. The platform eliminates the need for intermediaries, allowing farmers to receive instant payments while providing buyers with transparent and traceable farm produce. By leveraging Web3 technology, decentralized finance (DeFi), and smart contracts, FarmFi enables seamless, trustless transactions that empower farmers and create a more efficient global food supply chain.",
+    description:
+      "FarmFi is a blockchain-powered agricultural marketplace that connects rural farmers directly with local and international buyers, ensuring fair pricing and secure transactions through smart contracts and $SUI-based escrows. The platform eliminates intermediaries, enabling instant payments for farmers and providing buyers with transparent, traceable farm produce. Leveraging Web3, DeFi, and smart contracts, FarmFi fosters a trustless, efficient global food supply chain.",
     siteName: "FarmFi",
     images: [
       {
@@ -125,18 +121,28 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     site: "@theactualdev",
     creator: "@theactualdev",
     title: "FarmFi - Decentralized Agriculture Marketplace",
-    description: "FarmFi is a blockchain-powered agricultural marketplace that connects rural farmers directly with local and international buyers, ensuring fair pricing and secure transactions through smart contracts and $SUI-based escrows. The platform eliminates the need for intermediaries, allowing farmers to receive instant payments while providing buyers with transparent and traceable farm produce. By leveraging Web3 technology, decentralized finance (DeFi), and smart contracts, FarmFi enables seamless, trustless transactions that empower farmers and create a more efficient global food supply chain.",
-    images: "https://farm-fi.vercel.app/banner.png",
+    description:
+      "FarmFi is a blockchain-powered agricultural marketplace that connects rural farmers directly with local and international buyers, ensuring fair pricing and secure transactions through smart contracts and $SUI-based escrows.",
+    images: [
+      {
+        url: "https://farm-fi.vercel.app/banner.png",
+        width: 1200,
+        height: 630,
+        alt: "FarmFi - Decentralized Agriculture Marketplace",
+      },
+    ],
   },
+
   formatDetection: {
-    telephone: true,
-    email: true,
-    address: true,
+    telephone: false, 
+    email: false,
+    address: false,
   },
 };
 
