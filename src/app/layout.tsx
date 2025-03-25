@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     {
       sizes: "64x64 32x",
       type: "image/x-icon",
-      url: "/favicon.ico",
+      url: "https://farm-fi.vercel.app/favicon.ico",
       rel: "icon",
     },
     {
-      url: "https://farm-fi.vercel.app/image.jpg",
+      url: "https://farm-fi.vercel.app/logo.png",
       type: "image/png",
       rel: "apple-touch-icon",
     },
@@ -118,7 +118,7 @@ export const metadata: Metadata = {
     siteName: "FarmFi",
     images: [
       {
-        url: "https://farm-fi.vercel.app/image.jpg",
+        url: "https://farm-fi.vercel.app/banner.png",
         width: 1200,
         height: 630,
         alt: "FarmFi - Decentralized Agriculture Marketplace",
@@ -131,7 +131,7 @@ export const metadata: Metadata = {
     creator: "@theactualdev",
     title: "FarmFi - Decentralized Agriculture Marketplace",
     description: "FarmFi is a blockchain-powered agricultural marketplace that connects rural farmers directly with local and international buyers, ensuring fair pricing and secure transactions through smart contracts and $SUI-based escrows. The platform eliminates the need for intermediaries, allowing farmers to receive instant payments while providing buyers with transparent and traceable farm produce. By leveraging Web3 technology, decentralized finance (DeFi), and smart contracts, FarmFi enables seamless, trustless transactions that empower farmers and create a more efficient global food supply chain.",
-    images: "https://farm-fi.vercel.app/image.jpg",
+    images: "https://farm-fi.vercel.app/banner.png",
   },
   formatDetection: {
     telephone: true,
