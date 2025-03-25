@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { ibm, lora, poppins } from "@/app/layout";
+import { ibm, lora, poppins } from "@/lib/library";
 import { heroStats, joinCards, offerIcons, feedback } from "@/lib/library";
 import Image from "next/image";
 import Link from "next/link";

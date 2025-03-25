@@ -1,4 +1,4 @@
-import { poppins, ibm, lora } from "@/app/layout"
+import { poppins, ibm, lora } from "@/lib/library"
 import { footerLinks } from "@/lib/library"
 import Image from "next/image"
 import Link from "next/link"

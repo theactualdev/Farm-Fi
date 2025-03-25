@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { navLinks } from "@/lib/library";
-import { ibm } from "@/app/layout";
-import { lora } from "@/app/layout";
+import { ibm, lora } from "@/lib/library";
 import Link from "next/link";
 
 export default function Navbar(){

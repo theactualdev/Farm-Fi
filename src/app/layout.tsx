@@ -1,24 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Lora, Poppins } from "next/font/google";
 import "./globals.css";
-
-export const ibm = IBM_Plex_Sans({
-  weight: '600',
-  subsets: ["latin"],
-  variable: "--font-ibm",
-  adjustFontFallback: false
-})
-
-export const lora = Lora({
-  subsets: ["latin"],
-  variable: "--font-lora"
-})
-
-export const poppins = Poppins({
-  weight: ['300', '500', '600', '700'],
-  subsets: ["latin"],
-  variable: "--font-poppins"
-})
 
 export const metadata: Metadata = {
   title: "FarmFi - Decentralized Agriculture Marketplace",
