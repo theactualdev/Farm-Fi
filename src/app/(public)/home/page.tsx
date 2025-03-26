@@ -25,7 +25,7 @@ export default function Home() {
           </p>
           <Link
             className={`flex ${lora.className} font-medium py-[18px] px-5 bg-[var(--primary)] rounded-[40px] gap-6`}
-            href={"/"}
+            href={"/signup"}
           >
             {" "}
             Get Started{" "}

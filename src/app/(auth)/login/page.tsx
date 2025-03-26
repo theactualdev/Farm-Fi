@@ -29,7 +29,6 @@ export default function Login() {
       });
       if (!res.ok) {
         setIsLoading(false);
-        console.log(isLoading)
         throw new Error("Login Failed");
       }
       router.push("/");
@@ -65,7 +64,7 @@ export default function Login() {
           <div />
         </button>
         <Link
-          href={"/"}
+          href={"/signup"}
           className={`${lora.className} flex gap-2 justify-center text-sm`}
         >
           Don’t have an account?<span className="font-bold"> Register</span>
