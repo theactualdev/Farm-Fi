@@ -16,16 +16,18 @@ export default function Login() {
     password: string;
   }) => {
     try {
+        // console.log('tsar')
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
+        credentials: "include"
       });
       if (!res.ok) throw new Error("Login Failed");
       const data = await res.json();
-      localStorage.setItem("token", data.token);
+    //   localStorage.setItem("token", data.token);
       router.push("/");
     } catch (error) {
       console.error(error);
