@@ -32,7 +32,6 @@ export default function Login() {
         console.log(isLoading)
         throw new Error("Login Failed");
       }
-      const data = await res.json();
       router.push("/");
     } catch (error) {
       console.error(error);
