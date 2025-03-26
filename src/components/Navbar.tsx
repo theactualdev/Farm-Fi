@@ -17,7 +17,7 @@ export default function Navbar(){
                     )
                 })}
             </ul>
-            <Link href={"/"} className={`bg-white text-[var(--background)] ${lora.className} font-semibold px-4 py-[10px] rounded-4xl`}>Log in</Link>
+            <Link href={"/login"} className={`bg-white text-[var(--background)] ${lora.className} font-semibold px-4 py-[10px] rounded-4xl`}>Log in</Link>
         </nav>
     )
 }
