@@ -4,8 +4,9 @@ import { useState } from "react";
 import { LoginFormProps } from "@/lib/interface";
 import { lora } from "@/lib/library";
 import Link from "next/link";
+import Image from "next/image";
 
-export default function LoginForm({onSubmit} : LoginFormProps){
+export default function LoginForm({onSubmit, loading} : LoginFormProps){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -26,7 +27,7 @@ export default function LoginForm({onSubmit} : LoginFormProps){
             </div>
             <Link className={`${lora.className} text-end text-sm`} href={"/"}>Forgotten Password?</Link>
             <div className="button flex justify-center">
-                <button type="submit" className={`${lora.className} cursor-pointer bg-[var(--primary)] w-fit px-6 py-3 rounded-[30px]`}>Sign in</button>
+                <button type="submit" className={`${lora.className} cursor-pointer bg-[var(--primary)] w-fit px-6 py-3 rounded-[30px]`}>{loading ? <Image src="/ring.png" className="animate-spin" width={20} height={20} alt="Loading" /> : 'Sign In'}</button>
             </div>
         </form>
     )

@@ -5,10 +5,12 @@ import { ibm, lora } from "@/lib/library";
 import LoginForm from "./form";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Login() {
-    const router = useRouter();
-    const handleLogin = async ({
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const handleLogin = async ({
     email,
     password,
   }: {
@@ -16,19 +18,21 @@ export default function Login() {
     password: string;
   }) => {
     try {
-        console.log('start')
+      setIsLoading(true);
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
-        credentials: "include"
+        credentials: "include",
       });
-      if (!res.ok) throw new Error("Login Failed");
+      if (!res.ok) {
+        setIsLoading(false);
+        console.log(isLoading)
+        throw new Error("Login Failed");
+      }
       const data = await res.json();
-      console.log(data)
-    //   localStorage.setItem("token", data.token);
       router.push("/");
     } catch (error) {
       console.error(error);
@@ -41,7 +45,7 @@ export default function Login() {
         <h1 className={`${ibm.className} text-2xl text-center font-semibold`}>
           Sign In
         </h1>
-        <LoginForm onSubmit={handleLogin} />
+        <LoginForm loading={isLoading} onSubmit={handleLogin} />
         <div className="flex items-center justify-center gap-[10px]">
           <div className="md:w-[210px] bg-white h-[1px]"></div>
           <p className={`${lora.className} text-sm font-medium`}>or</p>
