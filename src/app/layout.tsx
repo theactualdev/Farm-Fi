@@ -114,7 +114,7 @@ export const metadata: Metadata = {
     siteName: "FarmFi",
     images: [
       {
-        url: "https://farm-fi.vercel.app/banner.png",
+        url: "https://farm-fi.vercel.app/logo.png",
         width: 1200,
         height: 630,
         alt: "FarmFi - Decentralized Agriculture Marketplace",
@@ -131,7 +131,7 @@ export const metadata: Metadata = {
       "FarmFi is a blockchain-powered agricultural marketplace that connects rural farmers directly with local and international buyers, ensuring fair pricing and secure transactions through smart contracts and $SUI-based escrows.",
     images: [
       {
-        url: "https://farm-fi.vercel.app/banner.png",
+        url: "https://farm-fi.vercel.app/logo.png",
         width: 1200,
         height: 630,
         alt: "FarmFi - Decentralized Agriculture Marketplace",
