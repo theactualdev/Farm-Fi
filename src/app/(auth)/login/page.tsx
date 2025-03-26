@@ -27,6 +27,7 @@ export default function Login() {
       });
       if (!res.ok) throw new Error("Login Failed");
       const data = await res.json();
+      console.log(data)
     //   localStorage.setItem("token", data.token);
       router.push("/");
     } catch (error) {
