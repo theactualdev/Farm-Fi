@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { jwtDecode } from "jwt-decode";
-import { getCookie, setCookie } from "cookies-next";
+import { setCookie } from "cookies-next";
 
 export default function Login() {
   const router = useRouter();
@@ -37,7 +37,7 @@ export default function Login() {
       const data = await res.json();
       const token = data.token;
 
-      const decodedToken: any = jwtDecode(token);
+      const decodedToken: { user?: { role?: string } } = jwtDecode(token);
 
       const role = decodedToken?.user?.role;
 
@@ -51,8 +51,12 @@ export default function Login() {
           role === "farmer" ? "/dashboard/farmer" : "/dashboard/buyer"
         );
       }, 500);
-    } catch (error: any) {
-      setError(error.message || "An error occurred. Please try again.");
+    } catch (error: unknown) {
+      setError(
+        error instanceof Error
+          ? error.message
+          : "An error occurred. Please try again."
+      );
     } finally {
       setIsLoading(false);
     }
