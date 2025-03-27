@@ -5,10 +5,10 @@ import Link from "next/link";
 
 export default function Navbar(){
     return(
-        <nav className="bg-[var(--background)] flex justify-between items-center text-white py-[30px] px-10">
+        <nav className="bg-[var(--background)] flex justify-around items-center text-white py-[30px]">
             <div className="logo-container flex gap-[15px] items-center">
                 <Image src={"/logo.svg"} height={28} width={28} alt="Logo" />
-                <h1 className={`${ibm.className} text-lg`}>FarmFi</h1>
+                <h1 className={`${ibm.className} font-semibold text-lg`}>FarmFi</h1>
             </div>
             <ul className="list-container flex gap-16 py-[10px]">
                 {navLinks.map((link, index) => {
