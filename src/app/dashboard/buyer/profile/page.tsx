@@ -41,7 +41,7 @@ const user = decodedToken?.user;
   useEffect(() => {
     async function fetchSuiPrice() {
       const response = await fetch(
-        `${process.env.COINGECKO_SUI_URL}`
+        `https://api.coingecko.com/api/v3/simple/price?ids=sui&vs_currencies=usd,ngn`
       );
       const jsonData = await response.json();
       setSui(jsonData.sui.ngn);
@@ -49,7 +49,7 @@ const user = decodedToken?.user;
     fetchSuiPrice();
   }, []);
 
-const client = useMemo(() => new SuiClient({ url: `${process.env.SUI_DEVNET_URL}` }), []);
+const client = useMemo(() => new SuiClient({ url: `https://fullnode.devnet.sui.io` }), []);
 
   useEffect(() => {
     async function fetchBalance() {
