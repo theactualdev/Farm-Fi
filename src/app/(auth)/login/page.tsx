@@ -48,7 +48,7 @@ export default function Login() {
 
       setTimeout(() => {
         router.push(
-          role === "farmer" ? "/dashboard/farmer" : "/dashboard/buyer"
+          role === "farmer" ? "/dashboard/farmer/profile" : "/dashboard/buyer/profile"
         );
       }, 500);
     } catch (error: unknown) {

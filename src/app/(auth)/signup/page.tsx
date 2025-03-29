@@ -38,7 +38,6 @@ async function handleSignUp({
             setIsLoading(false);
             throw new Error("Signup Failed");
         }
-
         const data = await res.json();
         document.cookie = `token=${data.token}; path=/; secure; HttpOnly;`;
         router.push("/login");

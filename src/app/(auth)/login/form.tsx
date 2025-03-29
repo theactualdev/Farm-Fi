@@ -49,13 +49,17 @@ export default function LoginForm({ onSubmit, loading }: LoginFormProps) {
           />
           <EyeClosed
             size={12}
-            className={`absolute right-4 ${!viewPassword ? 'absolute' : 'hidden'} cursor-pointer top-1/3`}
+            className={`absolute right-4 ${
+              !viewPassword ? "absolute" : "hidden"
+            } cursor-pointer top-1/3`}
             onClick={() => setViewPassword(!viewPassword)}
             color="black"
           />
           <Eye
             size={12}
-            className={`${viewPassword ? 'absolute' : 'hidden'} right-4 cursor-pointer top-1/3`}
+            className={`${
+              viewPassword ? "absolute" : "hidden"
+            } right-4 cursor-pointer top-1/3`}
             onClick={() => setViewPassword(!viewPassword)}
             color="black"
           />
@@ -67,7 +71,7 @@ export default function LoginForm({ onSubmit, loading }: LoginFormProps) {
       <div className="button flex justify-center">
         <button
           type="submit"
-          className={`${lora.className} cursor-pointer bg-[var(--primary)] w-fit px-6 py-3 rounded-[30px]`}
+          className={`${lora.className} cursor-pointer bg-[var(--secondary)] w-fit px-6 py-3 rounded-[30px]`}
         >
           {loading ? (
             <Image

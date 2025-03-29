@@ -105,7 +105,7 @@ export default function SignupForm({ onSubmit, loading }: SignupFormProps) {
       <div className="button flex justify-center">
         <button
           type="submit"
-          className={`${lora.className} cursor-pointer bg-[var(--primary)] w-fit px-6 py-3 rounded-[30px]`}
+          className={`${lora.className} cursor-pointer bg-[var(--secondary)] w-fit px-6 py-3 rounded-[30px]`}
         >
           {loading ? (
             <Image

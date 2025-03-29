@@ -11,7 +11,7 @@ export default function Home() {
       <Navbar />
 
       <section
-        className={`bg-[url("/hero.png")] bg-cover bg-center h-screen flex items-center justify-start md:px-[113px]`}
+        className={`bg-[url("/hero.png")] bg-cover bg-center md:h-screen flex items-center justify-start md:px-[113px]`}
         id="cta"
       >
         <div className="text text-white flex flex-col items-start max-w-[506px] space-y-5">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { CartProvider } from "./dashboard/buyer/cart/CartProvider";
 
 export const metadata: Metadata = {
   title: "FarmFi - Decentralized Agriculture Marketplace",
@@ -140,7 +141,7 @@ export const metadata: Metadata = {
   },
 
   formatDetection: {
-    telephone: false, 
+    telephone: false,
     email: false,
     address: false,
   },
@@ -153,7 +154,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased`}>
+        <CartProvider>{children}</CartProvider>
+      </body>
     </html>
   );
 }
