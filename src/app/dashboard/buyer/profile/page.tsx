@@ -6,7 +6,7 @@ import { jwtDecode } from "jwt-decode";
 import Image from "next/image";
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useState, useEffect, useMemo, use } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { SuiClient, SuiTransactionBlockResponse } from "@mysten/sui/client";
 
 export default function BuyerProfile() {
