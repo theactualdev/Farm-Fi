@@ -429,7 +429,7 @@ export const marketPlaceItems = {
     cashCrops: [
         {
             photo: "/coffee.png",
-            title: "Coffee Beans",
+            title: "Coffee",
             price: "13",
             weight: "3",
             rating: 5.0,
@@ -445,7 +445,7 @@ export const marketPlaceItems = {
         },
         {
             photo: "/palmoil.png",
-            title: "Palm Oil",
+            title: "PalmOil",
             price: "12",
             weight: "2",
             rating: 5.0,
@@ -477,7 +477,7 @@ export const marketPlaceItems = {
         },
         {
             photo: "/coffee-two.png",
-            title: "Coffee Beans",
+            title: "CoffeeBeans",
             price: "15",
             weight: "3",
             rating: 5.0,

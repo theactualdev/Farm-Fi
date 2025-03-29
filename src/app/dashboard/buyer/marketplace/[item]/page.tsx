@@ -17,6 +17,7 @@ export default function ItemPage() {
     ...marketPlaceItems.stapleCrops,
     ...marketPlaceItems.cashCrops,
   ];
+  console.log(allItems)
   const selectedItem = allItems.find(
     (item) => item.title.toLowerCase() === itemName.toLowerCase()
   );
