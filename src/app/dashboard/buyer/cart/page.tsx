@@ -23,7 +23,8 @@ export default function BuyerCart() {
     const token = getCookie("token") as string | undefined;
     if (token) {
       try {
-        const decodedToken: { user: { name: string; email: string } } = jwtDecode(token);
+        const decodedToken: { user: { name: string; email: string } } =
+          jwtDecode(token);
         setUser(decodedToken.user);
       } catch (error) {
         console.error("Invalid token:", error);
@@ -89,9 +90,16 @@ export default function BuyerCart() {
               className="grid grid-cols-4 place-items-center gap-x-10"
               key={index}
             >
-              <Image src={item.image} width={130} height={130} alt={item.title} />
+              <Image
+                src={item.image}
+                width={130}
+                height={130}
+                alt={item.title}
+              />
               <p className={`${lora.className} font-medium`}>{item.title}</p>
-              <p className={`${poppins.className} font-medium`}>{item.quantity}</p>
+              <p className={`${poppins.className} font-medium`}>
+                {item.quantity}
+              </p>
               <p className={`${poppins.className} font-medium`}>{item.price}</p>
             </div>
           ))}
@@ -130,7 +138,9 @@ export default function BuyerCart() {
         <div className="pt-5 py-[30px] border-b border-b-[#B3B3B380] space-y-[30px]">
           <div className="flex justify-between items-center">
             <p className="font-semibold">Delivery Fee</p>
-            <p className={`${poppins.className} font-semibold`}>{deliveryFee} $SUI</p>
+            <p className={`${poppins.className} font-semibold`}>
+              {deliveryFee} $SUI
+            </p>
           </div>
         </div>
 

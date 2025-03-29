@@ -6,37 +6,38 @@ import { jwtDecode } from "jwt-decode";
 import Image from "next/image";
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, use } from "react";
 import { SuiClient, SuiTransactionBlockResponse } from "@mysten/sui/client";
 
 export default function BuyerProfile() {
   const userToken = getCookie("token") as string | undefined;
   const [naira, setNaira] = useState(0);
+  const [showCopied, setShowCopied] = useState(false);
   const [sui, setSui] = useState(0);
   const [balance, setBalance] = useState(0);
   const [transactions, setTransactions] = useState<
     { id: string; type: string; amount: string }[]
   >([]);
 
-let decodedToken: {
-  user?: {
-    name?: string;
-    _id?: string;
-    email?: string;
-    role?: string;
-    suiWalletAddress?: string;
-  };
-} | null = null;
+  let decodedToken: {
+    user?: {
+      name?: string;
+      _id?: string;
+      email?: string;
+      role?: string;
+      suiWalletAddress?: string;
+    };
+  } | null = null;
 
-if (userToken) {
-  try {
-    decodedToken = jwtDecode(userToken);
-  } catch (error) {
-    console.error("Error decoding token:", error);
+  if (userToken) {
+    try {
+      decodedToken = jwtDecode(userToken);
+    } catch (error) {
+      console.error("Error decoding token:", error);
+    }
   }
-}
 
-const user = decodedToken?.user;
+  const user = decodedToken?.user;
 
   useEffect(() => {
     async function fetchSuiPrice() {
@@ -49,7 +50,16 @@ const user = decodedToken?.user;
     fetchSuiPrice();
   }, []);
 
-const client = useMemo(() => new SuiClient({ url: `https://fullnode.devnet.sui.io` }), []);
+  const client = useMemo(
+    () => new SuiClient({ url: `https://fullnode.devnet.sui.io` }),
+    []
+  );
+
+  const walletAddress = decodedToken?.user?.suiWalletAddress || null;
+  const shortAddress = walletAddress
+    ? `${walletAddress.slice(0, 5)}...${walletAddress.slice(-4)}`
+    : null;
+  console.log(walletAddress, shortAddress);
 
   useEffect(() => {
     async function fetchBalance() {
@@ -141,7 +151,7 @@ const client = useMemo(() => new SuiClient({ url: `https://fullnode.devnet.sui.i
             Edit Profile
           </Link>
         </div>
-        <div className="wallet flex flex-col gap-5">
+        <div className="wallet relative flex justify-between items-start">
           <div className="balance flex flex-col gap-[10px]">
             <p className={`${lora.className} font-bold`}>Wallet Balance</p>
             <p
@@ -151,6 +161,25 @@ const client = useMemo(() => new SuiClient({ url: `https://fullnode.devnet.sui.i
               {balance} $SUI{" "}
             </p>
           </div>
+          <p
+            className={`flex items-center cursor-pointer text-xs ${lora.className} font-semibold gap-[5px]`}
+            onClick={() => {
+              if (walletAddress) {
+                navigator.clipboard.writeText(walletAddress);
+              };
+              setShowCopied(true);
+              setTimeout(() => setShowCopied(false), 1400);
+            }}
+          >
+            {showCopied && <AddedClipboard />}
+            {shortAddress}{" "}
+            <Image
+              src={"/copy.svg"}
+              width={20}
+              height={20}
+              alt="Copy Address"
+            />
+          </p>
         </div>
         <Tabs>
           <TabsList className="flex justify-between gap-[70px] w-full">
@@ -266,14 +295,30 @@ const client = useMemo(() => new SuiClient({ url: `https://fullnode.devnet.sui.i
                   key={index}
                   className={`${poppins.className} flex justify-between font-semibold text-xs`}
                 >
-                    <p>ID: {transaction.id.substring(0, 10) + "XXX"}</p>
-                    <p>{transaction.amount && !isNaN(parseFloat(transaction.amount)) ? parseFloat(transaction.amount).toFixed(2) : "0.000"} $SUI</p>
+                  <p>ID: {transaction.id.substring(0, 10) + "XXX"}</p>
+                  <p>
+                    {transaction.amount &&
+                    !isNaN(parseFloat(transaction.amount))
+                      ? parseFloat(transaction.amount).toFixed(2)
+                      : "0.000"}{" "}
+                    $SUI
+                  </p>
                 </li>
               );
             })}
           </ul>
         </div>
       </div>
+    </div>
+  );
+}
+
+function AddedClipboard() {
+  return (
+    <div className="w-[250px] flex show-produce-added left-1/4 justify-center p-[10px] absolute border border-[#B3B3B3] rounded-b-[10px] bg-[var(--success)]">
+      <p className={`${lora.className} text-sm font-semibold`}>
+        Added to Clipboard!
+      </p>
     </div>
   );
 }

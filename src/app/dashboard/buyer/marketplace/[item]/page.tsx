@@ -8,9 +8,10 @@ import { ibm, lora, marketPlaceItems, poppins } from "@/lib/library";
 import { useCart } from "../../cart/CartProvider";
 
 export default function ItemPage() {
-  const params = useParams(); // Correct way to access params
+  const params = useParams();
   const itemName = params.item as string;
-  const { addToCart } = useCart(); // Extract addToCart properly
+  const { addToCart } = useCart();
+  const [showProduceAdded, setShowProduceAdded] = useState(false);
 
   const allItems = [
     ...marketPlaceItems.stapleCrops,
@@ -27,7 +28,7 @@ export default function ItemPage() {
   }
 
   return (
-    <section className="w-full pl-[59px] flex flex-col gap-[50px] pr-[236px]">
+    <section className="w-full pl-[59px] relative flex flex-col gap-[50px] pr-[236px]">
       <div className="details flex justify-between">
         <Image
           src={selectedItem.photo}
@@ -72,17 +73,20 @@ export default function ItemPage() {
         </div>
         <button
           className={`flex ${lora.className} font-semibold text-sm rounded-[40px] cursor-pointer flex-col bg-[var(--secondary)] py-3 px-9 h-fit justify-start`}
-          onClick={() =>
+          onClick={() => {
             addToCart({
               title: selectedItem.title,
               quantity,
-              image: selectedItem.photo, // Added Image URL
-              price: Number(selectedItem.price), // Added Price
-            })
-          }
+              image: selectedItem.photo,
+              price: Number(selectedItem.price),
+            });
+            setShowProduceAdded(true);  
+            setTimeout(() => setShowProduceAdded(false), 1400);
+          }}
         >
           Add to Cart
         </button>
+        {showProduceAdded && <ProduceAdded />}
       </div>
 
       <div className="desc flex flex-col gap-4">
@@ -134,5 +138,15 @@ export default function ItemPage() {
         </div>
       </div>
     </section>
+  );
+}
+
+function ProduceAdded() {
+  return (
+    <div className="w-[490px] flex show-produce-added left-1/4 justify-center p-[10px] absolute border border-[#B3B3B3] rounded-b-[10px] bg-[var(--success)]">
+      <p className={`${lora.className} text-sm font-semibold`}>
+        Produce Added Successfully
+      </p>
+    </div>
   );
 }
